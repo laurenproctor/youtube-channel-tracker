@@ -1,0 +1,32 @@
+<h1>Listing channels</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Url</th>
+    <th>Videos</th>
+    <th>Subscribers</th>
+    <th>Total views</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @videos.each do |video| %>
+<%= video.title %>
+<% end %>
+<% @channels.each do |channel| %>
+  <tr>
+    <td><%= channel.name %></td>
+    <td><%= channel.url %></td>
+    <td><%= channel.videos %></td>
+    <td><%= channel.subscribers %></td>
+    <td><%= channel.total_views %></td>
+    <td><%= link_to 'Show', channel %></td>
+    <td><%= link_to 'Edit', edit_channel_path(channel) %></td>
+    <td><%= link_to 'Destroy', channel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Channel', new_channel_path %>
